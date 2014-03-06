@@ -62,8 +62,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Data\Person.cs" />
+    <Compile Include="QueryToStringTests.cs" />
+    <Compile Include="ExplainTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Data\TestMongoContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

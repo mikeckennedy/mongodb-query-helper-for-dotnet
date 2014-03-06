@@ -45,8 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BsonDocumentExtensions.cs" />
+    <Compile Include="ClusterType.cs" />
+    <Compile Include="CursorType.cs" />
+    <Compile Include="MongoExplainExtensions.cs" />
+    <Compile Include="MongoToStringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryPlan.cs" />
+    <Compile Include="QueryPlanStats.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
