@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 using MongoDB.Driver.Linq;
 using MongoDB.Kennedy;
 
@@ -58,6 +59,18 @@ namespace MongoDB.QueryHelper.Tests.Data
 
 			mongo.Save(p1);
 			mongo.Save(p2);
+		}
+
+		public static void AddIndexes()
+		{
+			var mongo = new TestMongoContext();
+			mongo.PeopleCollection.EnsureIndex(IndexKeys<Person>.Ascending(p => p.Age));
+		}
+
+		public static void DropIndexes()
+		{
+			var mongo = new TestMongoContext();
+			mongo.PeopleCollection.DropAllIndexes();
 		}
 	}
 }

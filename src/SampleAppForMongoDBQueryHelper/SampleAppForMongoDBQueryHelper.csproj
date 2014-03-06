@@ -41,6 +41,9 @@
     <Reference Include="MongoDB.Kennedy">
       <HintPath>..\packages\MongoDB.Kennedy.Concurrency.1.0.10\lib\MongoDB.Kennedy.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -57,6 +60,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MongoDB.QueryHelper.Tests\MongoDB.QueryHelper.Tests.csproj">
+      <Project>{CBD72658-6E68-42BD-B060-7B1F11D9526E}</Project>
+      <Name>MongoDB.QueryHelper.Tests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MongoDB.QueryHelper\MongoDB.QueryHelper.csproj">
       <Project>{af647e9a-5c9a-4064-8894-08e064d92849}</Project>
       <Name>MongoDB.QueryHelper</Name>

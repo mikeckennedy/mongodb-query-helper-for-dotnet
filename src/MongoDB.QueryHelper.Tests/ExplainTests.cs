@@ -11,6 +11,11 @@ namespace MongoDB.QueryHelper.Tests
 	{
 		readonly TestMongoContext mongo = new TestMongoContext();
 
+		public ExplainTests()
+		{
+			TestMongoContext.BuildTestData();
+		}
+
 		[TestMethod]
 		public void TestTypedExplainFromLinqQueryDetectsIndexedCursor()
 		{
