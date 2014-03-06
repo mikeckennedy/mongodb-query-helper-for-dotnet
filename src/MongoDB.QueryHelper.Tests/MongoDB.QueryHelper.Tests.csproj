@@ -63,8 +63,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Data\Person.cs" />
-    <Compile Include="QueryToStringTests.cs" />
     <Compile Include="ExplainTests.cs" />
+    <Compile Include="QueryToStringTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Data\TestMongoContext.cs" />
   </ItemGroup>

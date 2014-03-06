@@ -1,49 +1,99 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using MongoDB.QueryHelper.Tests.Data;
 
 namespace MongoDB.QueryHelper.Tests
 {
 	[TestClass]
-	public class ExplainTests
+	public class QueryToStringTests
 	{
 		readonly TestMongoContext mongo = new TestMongoContext();
 
 		[TestMethod]
-		public void TestTypedExplainFromLinqQueryDetectsIndexedCursor()
+		public void query_on_mongo_direct_to_query_test()
 		{
-			mongo.PeopleCollection.EnsureIndex(IndexKeys<Person>.Ascending(c => c.Age));
-			QueryPlan typedExplain = mongo.People
-				.Where(p => p.Age > 30)
-				.Take(1)
-				.ExplainTyped();
+			MongoCursor<Person> query = 
+				mongo.PeopleCollection.Find(Query<Person>.GT(p => p.Age, 30));
 
-			Assert.AreEqual(CursorType.BtreeCursor, typedExplain.CursorType);
+			const string jsQuery = "{ \"Age\" : { \"$gt\" : 30 } }";
+
+			IMongoQuery mongoQuery = query.ToMongoQuery();
+
+			Assert.IsNotNull(mongoQuery);
+			Assert.AreEqual(jsQuery, mongoQuery.ToString());
 		}
 
 		[TestMethod]
-		public void TestTypedExplainVerbose()
+		public void query_on_mongo_direct_to_string_test()
 		{
-			SafeDropIndex(IndexKeys<Person>.Ascending(c => c.Age));
-			QueryPlan typedExplain = mongo.People
-				.Where(p => p.Age > 30)
-				.Take(1)
-				.ExplainTyped(verbose: true);
+			MongoCursor<Person> query = 
+				mongo.PeopleCollection.Find(Query<Person>.GT(p => p.Age, 30));
 
-			Assert.AreEqual(CursorType.BasicCursor, typedExplain.CursorType);
+			const string jsQuery = "{ \"Age\" : { \"$gt\" : 30 } }";
+
+			string mongoQuery = query.ToMongoQueryText();
+
+			Assert.IsNotNull(mongoQuery);
+			Assert.AreEqual(jsQuery, mongoQuery);
 		}
 
-		private void SafeDropIndex(IndexKeysBuilder<Person> indexKeysBuilder)
+		[TestMethod]
+		public void query_on_linq_to_query_test()
 		{
-			try
-			{
-				mongo.PeopleCollection.DropIndex(indexKeysBuilder);
-			}
-			catch
-			{
-			}
+			var query =
+				from p in mongo.People
+				where p.Age > 30
+				select p;
+
+			const string jsQuery = "{ \"Age\" : { \"$gt\" : 30 } }";
+
+			IMongoQuery mongoQuery = query.ToMongoQuery();
+
+			Assert.IsNotNull(mongoQuery);
+			Assert.AreEqual(jsQuery, mongoQuery.ToString());
+		}
+
+		[TestMethod]
+		public void query_on_linq_to_string_test()
+		{
+			var query =
+				from p in mongo.People
+				where p.Age > 30
+				select p;
+
+			const string jsQuery = "{ \"Age\" : { \"$gt\" : 30 } }";
+
+			string mongoQuery = query.ToMongoQueryText();
+
+			Assert.IsNotNull(mongoQuery);
+			Assert.AreEqual(jsQuery, mongoQuery);
+		}
+
+		[ExpectedException(typeof(ArgumentException))]
+		[TestMethod]
+		public void query_on_none_mongo_item_to_is_error_test()
+		{
+			var query =
+				from p in new[] {new Person() {Age = 31}}
+				where p.Age > 30
+				select p;
+
+			query.ToMongoQuery();
+		}
+
+		[ExpectedException(typeof(ArgumentException))]
+		[TestMethod]
+		public void tostring_on_none_mongo_item_is_error_test()
+		{
+			var query =
+				from p in new[] {new Person() {Age = 31}}
+				where p.Age > 30
+				select p;
+
+			query.ToMongoQueryText();
 		}
 	}
 }
