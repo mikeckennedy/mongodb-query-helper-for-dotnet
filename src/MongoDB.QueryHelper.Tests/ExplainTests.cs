@@ -19,7 +19,7 @@ namespace MongoDB.QueryHelper.Tests
 		[TestMethod]
 		public void TestTypedExplainFromLinqQueryDetectsIndexedCursor()
 		{
-			mongo.PeopleCollection.EnsureIndex(IndexKeys<Person>.Ascending(c => c.Age));
+			mongo.PeopleCollection.CreateIndex(IndexKeys<Person>.Ascending(c => c.Age));
 			QueryPlan typedExplain = mongo.People
 				.Where(p => p.Age > 30)
 				.Take(1)

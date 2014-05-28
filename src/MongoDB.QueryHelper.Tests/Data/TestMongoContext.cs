@@ -64,7 +64,7 @@ namespace MongoDB.QueryHelper.Tests.Data
 		public static void AddIndexes()
 		{
 			var mongo = new TestMongoContext();
-			mongo.PeopleCollection.EnsureIndex(IndexKeys<Person>.Ascending(p => p.Age));
+			mongo.PeopleCollection.CreateIndex(IndexKeys<Person>.Ascending(p => p.Age));
 		}
 
 		public static void DropIndexes()

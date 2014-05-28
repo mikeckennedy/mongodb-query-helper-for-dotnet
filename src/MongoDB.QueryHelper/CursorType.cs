@@ -24,6 +24,10 @@ namespace MongoDB
 		/// <summary>
 		/// GeoSearchCursor indicates that the query used a geospatial index.
 		/// </summary>
-		GeoSearchCursor
+		GeoSearchCursor,
+		/// <summary>
+		/// QueryOptimizerCursor indicates the server is using a cursor interleaving multiple candidate cursors.
+		/// </summary>
+		QueryOptimizerCursor,
 	}
 }
