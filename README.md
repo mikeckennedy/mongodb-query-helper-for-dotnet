@@ -1,6 +1,8 @@
 MongoDB query helper for .NET
 ===============================
 
+**Available on NuGet**: [https://www.nuget.org/packages/MongoDB.QueryHelper](https://www.nuget.org/packages/MongoDB.QueryHelper)
+
 This library makes working with LINQ to MongoDB queries
 easier from C#. Specificially it is for debugging and
 runtime inquiry of LINQ queries.

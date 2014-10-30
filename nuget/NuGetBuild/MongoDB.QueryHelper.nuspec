@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>MongoDB.QueryHelper</id>
+        <version>1.0.0</version>
+        <title>MongoDB query helper for .NET and LINQ</title>
+        <authors>Michael Kennedy</authors>
+        <owners>Michael Kennedy</owners>
+        <licenseUrl>http://blog.michaelckennedy.net/license/</licenseUrl>
+        <projectUrl>https://github.com/mikeckennedy/mongodb-query-helper-for-dotnet</projectUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>This library makes working with LINQ to MongoDB queries easier from C#. Specificially it is for debugging and runtime inquiry of LINQ queries. There are two basic use cases: (1) Explain a LINQ query (does it use an index for example?). (2) Convert a LINQ query to the JavaScript code run in MongoDB.</description>
+        <releaseNotes>Initial release</releaseNotes>
+        <copyright>Copyright Michael Kennedy 2013-2014</copyright>
+        <tags>MongoDB Mongo Database Transactions Concurrency Explain LINQ Query</tags>
+        <dependencies>
+            <dependency id="mongocsharpdriver" version="1.9.2" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="lib\MongoDB.QueryHelper.dll" target="lib\MongoDB.QueryHelper.dll" />
+        <file src="lib\MongoDB.QueryHelper.pdb" target="lib\MongoDB.QueryHelper.pdb" />
+        <file src="readme.txt" target="readme.txt" />
+    </files>
+</package>
