@@ -8412,7 +8412,7 @@
             http://msdn.microsoft.com/en-us/library/windows/desktop/aa375378(v=vs.85).aspx
             </remarks>
         </member>
-        <member name="M:MongoDB.Driver.Communication.Security.Mechanisms.Sspi.Win32.FreeContextBuffer(System.IntPtr@)">
+        <member name="M:MongoDB.Driver.Communication.Security.Mechanisms.Sspi.Win32.FreeContextBuffer(System.IntPtr)">
             <summary>
             Frees the context buffer.
             </summary>

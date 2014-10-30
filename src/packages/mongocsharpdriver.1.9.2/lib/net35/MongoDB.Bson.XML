@@ -10446,6 +10446,14 @@
             Gets the value of an Int64 token.
             </summary>
         </member>
+        <member name="P:MongoDB.Bson.IO.JsonToken.IsNumber">
+            <summary>
+            Gets a value indicating whether this token is number.
+            </summary>
+            <value>
+              <c>true</c> if this token is number; otherwise, <c>false</c>.
+            </value>
+        </member>
         <member name="P:MongoDB.Bson.IO.JsonToken.ObjectIdValue">
             <summary>
             Gets the value of an ObjectId token.
@@ -10495,6 +10503,24 @@
             Gets the value of a Double token.
             </summary>
         </member>
+        <member name="P:MongoDB.Bson.IO.DoubleJsonToken.Int32Value">
+            <summary>
+            Gets the value of an Int32 token.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Bson.IO.DoubleJsonToken.Int64Value">
+            <summary>
+            Gets the value of an Int64 token.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Bson.IO.DoubleJsonToken.IsNumber">
+            <summary>
+            Gets a value indicating whether this token is number.
+            </summary>
+            <value>
+              <c>true</c> if this token is number; otherwise, <c>false</c>.
+            </value>
+        </member>
         <member name="T:MongoDB.Bson.IO.Int32JsonToken">
             <summary>
             Represents an Int32 JSON token.
@@ -10507,6 +10533,11 @@
             <param name="lexeme">The lexeme.</param>
             <param name="value">The Int32 value.</param>
         </member>
+        <member name="P:MongoDB.Bson.IO.Int32JsonToken.DoubleValue">
+            <summary>
+            Gets the value of a Double token.
+            </summary>
+        </member>
         <member name="P:MongoDB.Bson.IO.Int32JsonToken.Int32Value">
             <summary>
             Gets the value of an Int32 token.
@@ -10516,6 +10547,14 @@
             <summary>
             Gets the value of an Int32 token as an Int64.
             </summary>
+        </member>
+        <member name="P:MongoDB.Bson.IO.Int32JsonToken.IsNumber">
+            <summary>
+            Gets a value indicating whether this token is number.
+            </summary>
+            <value>
+              <c>true</c> if this token is number; otherwise, <c>false</c>.
+            </value>
         </member>
         <member name="T:MongoDB.Bson.IO.Int64JsonToken">
             <summary>
@@ -10529,10 +10568,28 @@
             <param name="lexeme">The lexeme.</param>
             <param name="value">The Int64 value.</param>
         </member>
+        <member name="P:MongoDB.Bson.IO.Int64JsonToken.DoubleValue">
+            <summary>
+            Gets the value of a Double token.
+            </summary>
+        </member>
+        <member name="P:MongoDB.Bson.IO.Int64JsonToken.Int32Value">
+            <summary>
+            Gets the value of an Int32 token.
+            </summary>
+        </member>
         <member name="P:MongoDB.Bson.IO.Int64JsonToken.Int64Value">
             <summary>
             Gets the value of an Int64 token.
             </summary>
+        </member>
+        <member name="P:MongoDB.Bson.IO.Int64JsonToken.IsNumber">
+            <summary>
+            Gets a value indicating whether this token is number.
+            </summary>
+            <value>
+              <c>true</c> if this token is number; otherwise, <c>false</c>.
+            </value>
         </member>
         <member name="T:MongoDB.Bson.IO.ObjectIdJsonToken">
             <summary>
@@ -14006,6 +14063,11 @@
             Output strict JSON.
             </summary>
         </member>
+        <member name="F:MongoDB.Bson.IO.JsonOutputMode.Shell">
+            <summary>
+            Use a format that can be pasted in to the MongoDB shell.
+            </summary>
+        </member>
         <member name="F:MongoDB.Bson.IO.JsonOutputMode.JavaScript">
             <summary>
             Use JavaScript data types for some values.
@@ -14014,11 +14076,6 @@
         <member name="F:MongoDB.Bson.IO.JsonOutputMode.TenGen">
             <summary>
             Use JavaScript and MongoDB data types for some values.
-            </summary>
-        </member>
-        <member name="F:MongoDB.Bson.IO.JsonOutputMode.Shell">
-            <summary>
-            Use a format that can be pasted in to the MongoDB shell.
             </summary>
         </member>
         <member name="T:MongoDB.Bson.IO.JsonWriter">
